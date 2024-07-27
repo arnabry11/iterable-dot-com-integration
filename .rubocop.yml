@@ -1,0 +1,124 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
+
+AllCops:
+  TargetRubyVersion: 3.3.4
+  NewCops: enable
+  Exclude:
+    # Include 'scripts' directory, exclude everything else in 'bin'
+    <% Dir.glob('bin/**/*').grep_v(%r{bin/scripts/}).each do |path| %>
+    - <%= path %>
+    <% end %>
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+    - '.bundle/**/*'
+    - 'config/environments/**/*'
+    - 'db/schema.rb'
+    - 'bin/bundle.rb'
+
+# Ruby 3.3 call to `it` without arguments in block with no ordinary parameters are deprecated.
+# In Ruby 3.4, it will refer to the first block parameter.
+# This cop will have to be updated to `EnforcedStyle: block_parameters`
+# https://github.com/rubocop/rubocop/issues/12571
+Naming/BlockForwarding:
+  EnforcedStyle: explicit
+
+# Rails
+Rails/FilePath:
+  EnforcedStyle: arguments
+Rails/HasManyOrHasOneDependent: # Use foreign keys in DB
+  Enabled: false
+Rails/DynamicFindBy:
+  Enabled: false
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+    - dev_staging
+
+# RSpec
+RSpec/VariableName:
+  EnforcedStyle: snake_case
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Max: 15
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/NamedSubject:
+  Exclude:
+    - 'spec/support/graphql_helper.rb'
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - 'spec/graphql/**/*'
+RSpec/IndexedLet:
+  Enabled: false
+
+# Metrics
+Metrics/AbcSize:
+  Max: 50
+Metrics/BlockLength:
+  Exclude:
+    - 'Gemfile'
+    - 'db/**/*'
+    - 'lib/tasks/**/*'
+    - 'spec/**/*'
+    - 'config/environments/development.rb'
+    - 'config/routes.rb'
+Metrics/MethodLength:
+  Max: 50
+Metrics/ClassLength:
+  Max: 300
+Metrics/ModuleLength:
+  Max: 150
+
+# Layout
+Layout/LineLength:
+  Max: 150
+  AllowedPatterns: ['^(\s*#)'] # ignore commented out lines
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+# Style
+Style/Documentation:
+  Enabled: false
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+# Disabling these because I couldn't find a way to pass in other associations
+# with the suggested syntax as attribute override:
+#
+#  factory :group do
+#    user
+#    course { build(:course, user: user) } # with implicit syntax, I cannot pass the user
+#  end
+#
+#  Examples: https://docs.rubocop.org/rubocop-factory_bot/cops_factorybot.html#factorybotassociationstyle
+FactoryBot/FactoryAssociationWithStrategy:
+  Enabled: false
+FactoryBot/AssociationStyle:
+  Enabled: false
