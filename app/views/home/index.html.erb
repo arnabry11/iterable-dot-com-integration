@@ -1,1 +1,10 @@
-<h1>Hello World!</h1>
+<h1>Events</h1>
+
+<div class="card" style="width: 30rem;">
+  <div class="card-body">
+    <% @events.each do |event| %>
+      <%= link_to "Subscribe To #{event.name}", '#', class: "btn btn-primary mt-2"  %>
+      <br>
+    <% end %>
+  </div>
+</div>
