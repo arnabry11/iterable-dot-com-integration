@@ -122,3 +122,5 @@ FactoryBot/FactoryAssociationWithStrategy:
   Enabled: false
 FactoryBot/AssociationStyle:
   Enabled: false
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
