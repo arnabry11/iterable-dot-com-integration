@@ -24,18 +24,6 @@ module Iterable
 
     attr_reader :url, :api_key
 
-    def hash_including(expected)
-      lambda do |actual|
-        expected.all? do |key, value|
-          if value.is_a?(Regexp)
-            actual[key] =~ value
-          else
-            actual[key] == value
-          end
-        end
-      end
-    end
-
     def connection
       @connection = Faraday.new(url:) do |conn|
         conn.request :retry
