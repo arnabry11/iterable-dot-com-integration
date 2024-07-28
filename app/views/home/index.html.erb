@@ -3,7 +3,7 @@
 <div class="card" style="width: 30rem;">
   <div class="card-body">
     <% @events.each do |event| %>
-      <%= link_to "Subscribe To #{event.name}", '#', class: "btn btn-primary mt-2"  %>
+      <%= button_to "Subscribe To #{event.name}", subscribe_event_path(event.id), method: :post, class: "btn btn-primary mt-2"  %>
       <br>
     <% end %>
   </div>

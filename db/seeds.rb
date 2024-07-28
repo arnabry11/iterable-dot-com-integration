@@ -10,5 +10,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Event.create!(name: "Event-A")
-Event.create!(name: "Event-B")
+Event.create!(name: 'Event-A')
+Event.create!(name: 'Event-B')

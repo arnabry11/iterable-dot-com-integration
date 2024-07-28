@@ -10,4 +10,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#index'
+
+  resources :events, only: [] do
+    member do
+      post :subscribe
+    end
+  end
 end
