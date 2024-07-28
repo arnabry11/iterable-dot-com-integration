@@ -1,0 +1,5 @@
+iterable:
+  create_user:
+    path: /api/users/update
+    method: post
+    handler: CreateUserMock
