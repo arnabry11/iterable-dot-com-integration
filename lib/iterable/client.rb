@@ -20,6 +20,10 @@ module Iterable
       Resource::Users.new(self)
     end
 
+    def events
+      Resource::Events.new(self)
+    end
+
     private
 
     attr_reader :url, :api_key

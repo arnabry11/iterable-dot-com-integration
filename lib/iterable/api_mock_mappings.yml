@@ -3,3 +3,8 @@ iterable:
     path: /api/users/update
     method: post
     handler: CreateUserMock
+
+  track_event:
+    path: /api/events/track
+    method: post
+    handler: TrackEventMock
