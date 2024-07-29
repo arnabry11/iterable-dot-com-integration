@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# lib/puma/plugin/refresh_feed.rb
-
 require 'puma/plugin'
 
 Puma::Plugin.create do
