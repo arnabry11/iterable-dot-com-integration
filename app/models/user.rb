@@ -9,4 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  scope :subscribed_to_event, lambda { |event_name|
+    joins(:events).where(events: { name: event_name })
+  }
+
 end
