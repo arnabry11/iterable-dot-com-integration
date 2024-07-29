@@ -29,7 +29,7 @@ module Iterable
         user = User.find_by!(iterable_user_id:)
 
         {
-          msg: 'User created successfully',
+          msg: 'Event tracked successfully',
           code: 'Success',
           params: {
             email: user.email,

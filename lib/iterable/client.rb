@@ -24,6 +24,10 @@ module Iterable
       Resource::Events.new(self)
     end
 
+    def emails
+      Resource::Emails.new(self)
+    end
+
     private
 
     attr_reader :url, :api_key

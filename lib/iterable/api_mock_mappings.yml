@@ -8,3 +8,8 @@ iterable:
     path: /api/events/track
     method: post
     handler: TrackEventMock
+
+  deliver_email:
+    path: /api/email/target
+    method: post
+    handler: DeliverEmailMock
