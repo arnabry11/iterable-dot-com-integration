@@ -1,6 +1,6 @@
 # Iterable Integration
 
-A project for demonstrating integration of [iterable.com](https://api.iterable.com/api/docs). This is a very project which lets users sign_in/sign_up and subscribe themselves to some ongoing events. After that they will receive notifications for some of the events.
+A project for demonstrating integration of [iterable.com](https://api.iterable.com/api/docs). This is a very project which lets users sign_in/sign_up and subscribe themselves to some ongoing events. After that they will receive notifications for some of the events every 10 seconds(configurable in lib/puma/plugin).
 
 # Development
 
