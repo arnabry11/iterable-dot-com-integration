@@ -22,7 +22,7 @@ RSpec.describe EventNotifierJob do
     # subscribing to event2
     user3.events << event2
 
-    job.instance_variable_set(:@iterable_client, iterable_client) # rubocop:disable Rspec/InstanceVariable
+    job.instance_variable_set(:@iterable_client, iterable_client)
   end
 
   it 'sends emails to users who are subscribed to Event-B' do

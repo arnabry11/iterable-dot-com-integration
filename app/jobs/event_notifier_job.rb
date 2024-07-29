@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class EventNotifierJob < ApplicationJob
 
-  NOTIFIABLE_EVENT_NAME = 'Event-B'.freeze
+  NOTIFIABLE_EVENT_NAME = 'Event-B'
 
   def perform
     User.subscribed_to_event(NOTIFIABLE_EVENT_NAME).find_each do |user|
