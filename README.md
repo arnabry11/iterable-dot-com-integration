@@ -1,24 +1,34 @@
-# README
+# Iterable Integration
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A project for demonstrating integration of [iterable.com](https://api.iterable.com/api/docs). This is a very project which lets users sign_in/sign_up and subscribe themselves to some ongoing events. After that they will receive notifications for some of the events.
 
-Things you may want to cover:
+# Development
 
-* Ruby version
+### System dependencies
+- Install Ruby 3.3.4 with [RVM](https://rvm.io/rvm/install).
 
-* System dependencies
+### Install dependencies
+```
+gem install bundler
 
-* Configuration
+bundle install
+```
 
-* Database creation
+### Setup database
+`rails db:setup`
 
-* Database initialization
+### Code style and linting
+```
+rubocop         # Check Ruby code style warning and errors
+rubocop -A      # Auto fix Ruby code style warning and errors
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Start servers
+```
+rails s
+```
 
-* Deployment instructions
+### Unit tests
+The project uses rspec for unit tests.
 
-* ...
